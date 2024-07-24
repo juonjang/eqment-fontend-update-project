@@ -98,11 +98,9 @@ export default function Register() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            {/* โลโก้ */}
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Register a new account
+         
+          <Typography component="h1" variant="h4" sx={{ color: '#004d40' }} >
+            โรงพยาบาลหนองบัวลำภู 
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
