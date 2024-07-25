@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { blueGrey, deepPurple } from '@mui/material/colors';
+import Link from 'next/link';
 
 const theme = createTheme();
 
@@ -93,17 +93,19 @@ export default function Register() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 10,
+            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ bgcolor: deepPurple[500] }}>NB</Avatar>
-          <Typography component="h1" variant="h5" sx={{ color: '#004d40' ,fontFamily:'kanit' , margin : 2}} >
-          กายภาพบำบัด โรงพบาลหนองบัวลำภู 
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            {/* โลโก้ */}
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Register a new account
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }} >
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -193,10 +195,23 @@ export default function Register() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:'kanit'}}
             >
               Register
             </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/login" passHref>
+                  <Button variant="text" 
+                  fullWidth
+
+                  sx={{mt: 3, mb: 2 ,fontFamily:'kanit'}}
+                  >
+                    go  to Sign in
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
