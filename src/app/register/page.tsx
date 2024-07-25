@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Link from 'next/link';
 
 const theme = createTheme();
 
@@ -99,7 +100,7 @@ export default function Register() {
           }}
         >
          
-          <Typography component="h1" variant="h4" sx={{ color: '#004d40' }} >
+          <Typography component="h1" variant="h4" sx={{ color: '#004d40' ,fontFamily:'kanit'}} >
             โรงพยาบาลหนองบัวลำภู 
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -192,10 +193,23 @@ export default function Register() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 ,fontFamily:'kanit'}}
             >
               Register
             </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/login" passHref>
+                  <Button variant="text" 
+                  fullWidth
+
+                  sx={{mt: 3, mb: 2 ,fontFamily:'kanit'}}
+                  >
+                    go  to Sign in
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

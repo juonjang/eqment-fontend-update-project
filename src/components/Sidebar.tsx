@@ -1,33 +1,65 @@
+"use client";
+
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Toolbar, Avatar } from '@mui/material';
+import { Dashboard as DashboardIcon, People as PeopleIcon, Build as BuildIcon, ListAlt as ListAltIcon, Settings as SettingsIcon } from '@mui/icons-material';
 import Link from 'next/link';
+import { alpha } from '@mui/material/styles';
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-gray-800 text-white h-screen flex flex-col fixed">
-      <div className="flex items-center justify-center h-20 border-b border-gray-700">
-        <Link href="/" className="text-xl font-semibold">Hospital Management</Link>
-      </div>
-      <nav className="flex-1 p-4">
-        <ul className="space-y-2">
-          <li>
-            <Link href="/" className="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</Link>
-          </li>
-          <li>
-            <Link href="/forms" className="block py-2 px-4 rounded hover:bg-gray-700">Forms</Link>
-          </li>
-          <li>
-            <Link href="/users" className="block py-2 px-4 rounded hover:bg-gray-700">Users</Link>
-          </li>
-          <li>
-            <Link href="/equipment" className="block py-2 px-4 rounded hover:bg-gray-700">Equipment</Link>
-          </li>
-          <li>
-            <Link href="/responses" className="block py-2 px-4 rounded hover:bg-gray-700">Responses</Link>
-          </li>
-        </ul>
-      </nav>
-      <div className="p-4 border-t border-gray-700">
-        <Link href="/settings" className="block py-2 px-4 rounded hover:bg-gray-700">Settings</Link>
-      </div>
-    </aside>
+    <Drawer
+       variant="permanent"
+      sx={{
+        my: 3,
+        mx: 2.5,
+        py: 2,
+        px: 2.5,
+        display: 'flex',
+        borderRadius: 1.5,
+        alignItems: 'center',
+        bgcolor: (theme) => alpha(theme.palette.grey[500],0.12),
+      }}
+    >
+      <Toolbar />
+      <List sx={{ paddingTop: 8 ,paddingRight:4,paddingLeft:3}}>
+        <ListItem button component={Link} href="/">
+          <ListItemIcon>
+            <DashboardIcon sx={{ color: '#3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button component={Link} href="/users">
+          <ListItemIcon>
+            <PeopleIcon sx={{ color: '#3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Users" />
+        </ListItem>
+        <ListItem button component={Link} href="/equipment">
+          <ListItemIcon>
+            <BuildIcon sx={{ color: '##3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Equipment" />
+        </ListItem>
+        <ListItem button component={Link} href="/forms">
+          <ListItemIcon>
+            <ListAltIcon sx={{ color: '##3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Forms" />
+        </ListItem>
+        <ListItem button component={Link} href="/responses">
+          <ListItemIcon>
+            <BuildIcon sx={{ color: '##3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Responses" />
+        </ListItem>
+        <Divider sx={{ borderStyle: 'dashed' }} />
+        <ListItem button component={Link} href="/settings">
+          <ListItemIcon>
+            <SettingsIcon sx={{ color: '#3F4E4F' }} />
+          </ListItemIcon>
+          <ListItemText primary="Settings" />
+        </ListItem>
+      </List>
+    </Drawer>
   );
 }
